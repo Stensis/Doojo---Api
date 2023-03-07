@@ -35,11 +35,13 @@ class UsersController < ApplicationController
 
   
     def update
-      if @user.update(user_params)
-        redirect_to @user, notice: 'User was successfully updated.'
-      else
-        render :edit
-      end
+        user = User.find(params[:id])
+    
+        if user.update(user_params)
+            render json: user, status: :ok
+        else
+          render json: 'edit'
+        end
     end
   
     def destroy
