@@ -3,6 +3,7 @@ class User < ApplicationRecord
     has_many :comments
   
     has_secure_password
+    validates :password_digest, presence: true
      
     validates :username, presence: true, uniqueness: true, on: :create
     validates :username, uniqueness: true, on: :update
@@ -10,7 +11,6 @@ class User < ApplicationRecord
     validates :email, presence: true, uniqueness: true, on: :create
     validates :email, uniqueness: true, on: :update
   
-    validates :password, confirmation: true, presence: true, length: { minimum: 7 }, on: :create
   
     attribute :role, :string, default: "user"
     validates :role, inclusion: { in: %w(user admin), message: "%{value} is not a valid role" }

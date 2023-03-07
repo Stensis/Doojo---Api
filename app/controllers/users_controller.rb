@@ -1,29 +1,38 @@
 class UsersController < ApplicationController
-    before_action :set_user, only: [:show, :edit, :update, :destroy]
+
+    before_action :set_user, only: [:show, :edit,:update, :destroy]
 
     def index
-      @users = User.all
+        @users = User.all
+        render json: @users
     end
-  
-    def show
+
+     # shows a  user by id
+     def show 
+        @user = set_user
+        render json:@user, status: :ok
     end
-  
+
     def new
       @user = User.new
     end
-  
+
+       # creates a new user
+
     def edit
+        @user = User.find(params[:id])
     end
   
     def create
-      @user = User.new(user_params)
-  
-      if @user.save
-        redirect_to @user, notice: 'User was successfully created.'
-      else
-        render :new
-      end
+        @user = User.new(user_params)
+      
+        if @user.save
+          render json: { user: @user }, status: :created
+        else
+          render json: { errors: @user.errors }, status: :unprocessable_entity
+        end
     end
+
   
     def update
       if @user.update(user_params)
