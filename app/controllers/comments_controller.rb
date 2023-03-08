@@ -1,6 +1,9 @@
 class CommentsController < ApplicationController
     before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
+     # cancancan 
+    #  load_and_authorize_resource
+
     def index
       @comments = Comment.all
       render json: @comments
