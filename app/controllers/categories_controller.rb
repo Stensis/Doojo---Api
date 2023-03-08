@@ -3,9 +3,12 @@ class CategoriesController < ApplicationController
 
     def index
       @categories = Category.all
+      render json: @categories
     end
   
     def show
+        @categories = set_category
+        render json:@categories, status: :ok
     end
   
     def new
@@ -13,17 +16,19 @@ class CategoriesController < ApplicationController
     end
   
     def edit
+        @categories = Category.find(params[:id])
     end
   
     def create
-      @category = Category.new(category_params)
-  
-      if @category.save
-        redirect_to @category, notice: 'Category was successfully created.'
-      else
-        render :new
+        @categories = Category.new(category_params)
+    
+        if @categories.save
+          redirect_to @categories, notice: 'categories was successfully created.'
+        else
+          render :new
+        end
       end
-    end
+    
   
     def update
       if @category.update(category_params)
