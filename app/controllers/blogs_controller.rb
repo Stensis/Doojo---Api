@@ -3,10 +3,14 @@ class BlogsController < ApplicationController
 
     def index
       @blogs = Blog.all
+      render json: @blogs
     end
   
     def show
-      @blogs = Blog.find(params[:id])
+        @blogs = set_blog
+        render json:@blogs, status: :ok
+
+    #   @blogs = Blog.find(params[:id])
     end
     
     def new
@@ -47,6 +51,6 @@ class BlogsController < ApplicationController
     end
   
     def blog_params
-      params.require(:blog).permit(:title, :body, :published, :user_id, :category_id,:img,:created_at, :updated_at)
+      params.require(:blog).permit(:title, :body, :published_at, :user_id, :category_id,:img,:created_at, :updated_at)
     end
 end
