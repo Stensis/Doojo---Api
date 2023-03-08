@@ -30,6 +30,17 @@ class BlogsController < ApplicationController
         render :new
       end
     end
+
+    # cancanccan
+    # def update
+    #     @blog = Blog.find(params[:id])
+    #     authorize! :update, @blog
+    #     if @blog.update(blog_params)
+    #       redirect_to @blog
+    #     else
+    #       render 'edit'
+    #     end
+    # end
   
     def update
       if @blog.update(blog_params)

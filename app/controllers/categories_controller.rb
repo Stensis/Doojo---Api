@@ -1,6 +1,18 @@
 class CategoriesController < ApplicationController
     before_action :set_category, only: [:show, :edit, :update, :destroy]
 
+
+    # # cancancan 
+    # def index
+    #     authorize! :read, Category
+    #     @categories = Category.all
+    #   end
+    
+    #   def show
+    #     @category = Category.find(params[:id])
+    #     authorize! :read, @category
+    #   end
+
     def index
       @categories = Category.all
       render json: @categories

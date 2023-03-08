@@ -33,7 +33,17 @@ class UsersController < ApplicationController
         end
     end
 
-  
+#   cancancan 
+# def update
+#     @user = User.find(params[:id])
+#     authorize! :update, @user
+#     if @user.update(user_params)
+#       redirect_to @user
+#     else
+#       render 'edit'
+#     end
+#   end
+
     def update
         user = User.find(params[:id])
     
@@ -58,5 +68,5 @@ class UsersController < ApplicationController
     def user_params
         params.require(:user).permit(:username, :email, :password_digest, :avatar, :bio, :created_at, :updated_at, :role)
     end
-    
+
 end

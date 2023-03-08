@@ -38,6 +38,9 @@ gem "active_model_serializers"
 
 gem 'bcrypt'
 
+gem 'cancancan'
+
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

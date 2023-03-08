@@ -28,14 +28,24 @@ class CommentsController < ApplicationController
           render :new
         end
       end
-  
+
       def update
+        @comment = Comment.find(params[:id])
+        authorize! :update, @comment
         if @comment.update(comment_params)
-          redirect_to @comment, notice: 'comment was successfully updated.'
+          redirect_to @comment
         else
-          render :edit
+          render 'edit'
         end
       end
+  
+    #   def update
+    #     if @comment.update(comment_params)
+    #       redirect_to @comment, notice: 'comment was successfully updated.'
+    #     else
+    #       render :edit
+    #     end
+    #   end
   
     def destroy
         @comment.destroy
