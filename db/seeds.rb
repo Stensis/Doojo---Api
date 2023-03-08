@@ -93,6 +93,45 @@
       updated_at: "2023-03-05"
      )
   
+  comment1 = Comment.create!(
+    body: "Great post! I learned a lot from this.",
+    blog_id: 1,
+    user_id: 2,
+    created_at: "2023-03-06 12:00:00",
+    updated_at: "2023-03-06 12:00:00"
+  )
+  
+  comment2 = Comment.create!(
+    body: "This was a helpful post! Thank you for taking the time to write it.",
+    blog_id: 3,
+    user_id: 5,
+    created_at: "2023-03-03 09:15:00",
+    updated_at: "2023-03-03 09:15:00"
+  )
+  
+  comment3 = Comment.create!(
+    body: "I'm not sure I agree with your points here, but I appreciate the different perspective.",
+    blog_id: 1,
+    user_id: 4,
+    created_at: "2023-03-04 10:45:00",
+    updated_at: "2023-03-04 10:45:00"
+  )
+  
+  comment4 = Comment.create!(
+    body: "This was a helpful post! Thank you for taking the time to write it.",
+    blog_id: 3,
+    user_id: 5,
+    created_at: "2023-03-03 09:15:00",
+    updated_at: "2023-03-03 09:15:00"
+  )
+  
+  comment5 = Comment.create!(
+    body: "I had never thought about this topic before, but your post really got me thinking. Thanks!",
+    blog_id: 2,
+    user_id: 3,
+    created_at: "2023-03-02 14:00:00",
+    updated_at: "2023-03-02 14:00:00"
+  )
   
 
 
